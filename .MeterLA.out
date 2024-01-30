@@ -1,0 +1,87 @@
+[31m[2023-06-18 00:18:38,969 INFO][0m{'logger': True, 'enable_checkpointing': True, 'default_root_dir': None, 'gradient_clip_val': None, 'gradient_clip_algorithm': None, 'num_nodes': 1, 'num_processes': None, 'devices': None, 'gpus': 1, 'auto_select_gpus': False, 'tpu_cores': None, 'ipus': None, 'enable_progress_bar': True, 'overfit_batches': 0.0, 'track_grad_norm': -1, 'check_val_every_n_epoch': 1, 'fast_dev_run': False, 'accumulate_grad_batches': None, 'max_epochs': 3000, 'min_epochs': None, 'max_steps': -1, 'min_steps': None, 'max_time': None, 'limit_train_batches': None, 'limit_val_batches': None, 'limit_test_batches': None, 'limit_predict_batches': None, 'val_check_interval': None, 'log_every_n_steps': 50, 'accelerator': None, 'strategy': None, 'sync_batchnorm': False, 'precision': 32, 'enable_model_summary': True, 'weights_save_path': None, 'num_sanity_val_steps': 2, 'resume_from_checkpoint': None, 'profiler': None, 'benchmark': None, 'deterministic': None, 'reload_dataloaders_every_n_epochs': 0, 'auto_lr_find': False, 'replace_sampler_ddp': True, 'detect_anomaly': False, 'auto_scale_batch_size': False, 'plugins': None, 'amp_backend': 'native', 'amp_level': None, 'move_metrics_to_cpu': False, 'multiple_trainloader_mode': 'max_size_cycle', 'data': 'MeterLA', 'model_name': 'TGCN', 'settings': 'supervised', 'log_path': None, 'send_email': False, 'batch_size': 32, 'seq_len': 12, 'dim_input': 2, 'pre_len': 12, 'traffic_df_filename': './data/metr-la.h5', 'sensor_ids_filename': './data/sensor_graph/graph_sensor_ids.txt', 'distances_filename': 'data/sensor_graph/distances_la_2012.csv', 'normalized_k': 0.1, 'split_ratio': 0.8, 'normalize': True, 'hidden_dim': 128, 'learning_rate': 0.001, 'weight_decay': 0.01, 'loss': 'mse_with_regularizer', 'lamda': 1.0, 'noise': 2, 'noise_ratio': 0.01, 'noise_ratio_node': 0.2, 'noise_test': True, 'noise_ratio_test': 0.1, 'noise_ratio_node_test': 0.1, 'noise_sever': 8.0, 'noise_type': 'gaussian', 'kl_gamma': 5e-06}
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/utilities/parsing.py:262: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  f"Attribute {k!r} is an instance of `nn.Module` and is already saved during checkpointing."
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py:446: LightningDeprecationWarning: Setting `Trainer(gpus=1)` is deprecated in v1.7 and will be removed in v2.0. Please use `Trainer(accelerator='gpu', devices=1)` instead.
+  f"Setting `Trainer(gpus={gpus!r})` is deprecated in v1.7 and will be removed"
+[31m[2023-06-18 00:18:40,090 INFO][0mMultiprocessing is handled by SLURM.
+[31m[2023-06-18 00:18:40,390 INFO][0mGPU available: True (cuda), used: True
+[31m[2023-06-18 00:18:40,390 INFO][0mTPU available: False, using: 0 TPU cores
+[31m[2023-06-18 00:18:40,390 INFO][0mIPU available: False, using: 0 IPUs
+[31m[2023-06-18 00:18:40,390 INFO][0mHPU available: False, using: 0 HPUs
+noise 2 noise_ratio_train 0.01 noise_ratio_test 0.1 noise_sever 8.0 noise_ratio_node_train 0.2 noise_ratio_node_test 0.1 noise_type gaussian
+[31m[2023-06-18 00:18:44,486 INFO][0mLOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[31m[2023-06-18 00:18:44,488 INFO][0m
+  | Name      | Type   | Params
+-------------------------------------
+0 | model     | TGCN   | 99.8 K
+1 | regressor | Linear | 1.5 K 
+-------------------------------------
+101 K     Trainable params
+0         Non-trainable params
+101 K     Total params
+0.406     Total estimated model params size (MB)
+[31m[2023-06-18 00:18:46,958 INFO][0mSLURM auto-requeueing enabled. Setting signal handlers.
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 72 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  category=PossibleUserWarning,
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 72 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  category=PossibleUserWarning,
+[31m[2023-06-18 22:31:51,592 INFO][0m`Trainer.fit` stopped: `max_epochs=3000` reached.
+findfont: Font family ['Times New Roman'] not found. Falling back to DejaVu Sans.
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/trainer/trainer.py:1392: UserWarning: `.validate(ckpt_path=None)` was called without a model. The best model of the previous `fit` call will be used. You can pass `.validate(ckpt_path='best')` to use the best model or `.validate(ckpt_path='last')` to use the last model. If you pass a value, this warning will be silenced.
+  + f" You can pass `.{fn}(ckpt_path='best')` to use the best model or"
+[31m[2023-06-18 22:32:32,205 INFO][0mRestoring states from the checkpoint path at /gpfs/home2/liuyu/Projects/RTGCN/lightning_logs/version_2934339/checkpoints/epoch=43-step=37708.ckpt
+noise 2 noise_ratio_train 0.01 noise_ratio_test 0.1 noise_sever 8.0 noise_ratio_node_train 0.2 noise_ratio_node_test 0.1 noise_type gaussian
+[31m[2023-06-18 22:32:32,788 INFO][0mLOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[31m[2023-06-18 22:32:32,795 INFO][0mLoaded model weights from checkpoint at /gpfs/home2/liuyu/Projects/RTGCN/lightning_logs/version_2934339/checkpoints/epoch=43-step=37708.ckpt
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 72 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  category=PossibleUserWarning,
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+     Validate metric           DataLoader 0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+      ExplainedVar          0.7141969203948975
+           MAE               7.304396629333496
+           R2               0.7119482755661011
+          RMSE              12.252851486206055
+        accuracy            0.7797150611877441
+        val_loss               1273738496.0
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+[31m[2023-06-18 22:32:39,401 INFO][0m{'logger': True, 'enable_checkpointing': True, 'default_root_dir': None, 'gradient_clip_val': None, 'gradient_clip_algorithm': None, 'num_nodes': 1, 'num_processes': None, 'devices': None, 'gpus': 1, 'auto_select_gpus': False, 'tpu_cores': None, 'ipus': None, 'enable_progress_bar': True, 'overfit_batches': 0.0, 'track_grad_norm': -1, 'check_val_every_n_epoch': 1, 'fast_dev_run': False, 'accumulate_grad_batches': None, 'max_epochs': 3000, 'min_epochs': None, 'max_steps': -1, 'min_steps': None, 'max_time': None, 'limit_train_batches': None, 'limit_val_batches': None, 'limit_test_batches': None, 'limit_predict_batches': None, 'val_check_interval': None, 'log_every_n_steps': 50, 'accelerator': None, 'strategy': None, 'sync_batchnorm': False, 'precision': 32, 'enable_model_summary': True, 'weights_save_path': None, 'num_sanity_val_steps': 2, 'resume_from_checkpoint': None, 'profiler': None, 'benchmark': None, 'deterministic': None, 'reload_dataloaders_every_n_epochs': 0, 'auto_lr_find': False, 'replace_sampler_ddp': True, 'detect_anomaly': False, 'auto_scale_batch_size': False, 'plugins': None, 'amp_backend': 'native', 'amp_level': None, 'move_metrics_to_cpu': False, 'multiple_trainloader_mode': 'max_size_cycle', 'data': 'MeterLA', 'model_name': 'TGCN', 'settings': 'supervised', 'log_path': None, 'send_email': False, 'batch_size': 32, 'seq_len': 12, 'dim_input': 2, 'pre_len': 12, 'traffic_df_filename': './data/metr-la.h5', 'sensor_ids_filename': './data/sensor_graph/graph_sensor_ids.txt', 'distances_filename': 'data/sensor_graph/distances_la_2012.csv', 'normalized_k': 0.1, 'split_ratio': 0.8, 'normalize': True, 'hidden_dim': 128, 'learning_rate': 0.001, 'weight_decay': 0.01, 'loss': 'mse_with_regularizer', 'lamda': 1.0, 'noise': 2, 'noise_ratio': 0.05, 'noise_ratio_node': 0.2, 'noise_test': True, 'noise_ratio_test': 0.1, 'noise_ratio_node_test': 0.1, 'noise_sever': 8.0, 'noise_type': 'gaussian', 'kl_gamma': 5e-06}
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/utilities/parsing.py:262: UserWarning: Attribute 'model' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['model'])`.
+  f"Attribute {k!r} is an instance of `nn.Module` and is already saved during checkpointing."
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/trainer/connectors/accelerator_connector.py:446: LightningDeprecationWarning: Setting `Trainer(gpus=1)` is deprecated in v1.7 and will be removed in v2.0. Please use `Trainer(accelerator='gpu', devices=1)` instead.
+  f"Setting `Trainer(gpus={gpus!r})` is deprecated in v1.7 and will be removed"
+[31m[2023-06-18 22:32:40,266 INFO][0mMultiprocessing is handled by SLURM.
+[31m[2023-06-18 22:32:40,524 INFO][0mGPU available: True (cuda), used: True
+[31m[2023-06-18 22:32:40,524 INFO][0mTPU available: False, using: 0 TPU cores
+[31m[2023-06-18 22:32:40,524 INFO][0mIPU available: False, using: 0 IPUs
+[31m[2023-06-18 22:32:40,524 INFO][0mHPU available: False, using: 0 HPUs
+noise 2 noise_ratio_train 0.05 noise_ratio_test 0.1 noise_sever 8.0 noise_ratio_node_train 0.2 noise_ratio_node_test 0.1 noise_type gaussian
+/home/liuyu/miniconda3/envs/RTGCN/lib/python3.7/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:616: UserWarning: Checkpoint directory /gpfs/home2/liuyu/Projects/RTGCN/lightning_logs/version_2934339/checkpoints exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+[31m[2023-06-18 22:32:44,072 INFO][0mLOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[31m[2023-06-18 22:32:44,074 INFO][0m
+  | Name      | Type   | Params
+-------------------------------------
+0 | model     | TGCN   | 99.8 K
+1 | regressor | Linear | 1.5 K 
+-------------------------------------
+101 K     Trainable params
+0         Non-trainable params
+101 K     Total params
+0.406     Total estimated model params size (MB)
+[31m[2023-06-18 22:32:44,088 INFO][0mSLURM auto-requeueing enabled. Setting signal handlers.
+slurmstepd: error: *** JOB 2934339 ON gcn11 CANCELLED AT 2023-06-21T00:18:32 DUE TO TIME LIMIT ***
+
+JOB STATISTICS
+==============
+Job ID: 2934339
+Cluster: snellius
+User/Group: liuyu/liuyu
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 18
+CPU Utilized: 2-03:54:38
+CPU Efficiency: 4.01% of 54-00:02:42 core-walltime
+Job Wall-clock time: 3-00:00:09
+Memory Utilized: 6.38 GB
+Memory Efficiency: 0.00% of 0.00 MB
