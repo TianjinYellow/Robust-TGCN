@@ -1,4 +1,4 @@
-# T-GCN-PyTorch
+# RT-GCN-PyTorch
 
 
 ## Requirements
